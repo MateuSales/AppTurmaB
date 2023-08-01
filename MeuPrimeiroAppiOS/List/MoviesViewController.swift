@@ -31,6 +31,7 @@ class MoviesViewController: UIViewController {
         
         view.backgroundColor = .white
         tableView.dataSource = self
+        tableView.delegate = self
         addViewsInHierarchy()
         setupConstraints()
     }
@@ -42,7 +43,7 @@ class MoviesViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
         ])
@@ -56,7 +57,7 @@ class MoviesViewController: UIViewController {
     }
 }
 
-extension MoviesViewController: UITableViewDataSource {
+extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MovieCell()
         let movie = movies[indexPath.row]
@@ -66,5 +67,12 @@ extension MoviesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Detail", bundle: Bundle(for: DetailViewController.self))
+        let detailViewController = storyboard.instantiateViewController(withIdentifier: "Detail") as! DetailViewController
+        detailViewController.movie = movies[indexPath.row]
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
