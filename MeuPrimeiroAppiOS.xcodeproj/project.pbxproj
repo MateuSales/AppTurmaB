@@ -16,6 +16,8 @@
 		CEF3279B2A54D22E00D4269E /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3279A2A54D22E00D4269E /* MoviesViewController.swift */; };
 		CEF327A02A54D22F00D4269E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF3279F2A54D22F00D4269E /* Assets.xcassets */; };
 		CEF327A32A54D22F00D4269E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF327A12A54D22F00D4269E /* LaunchScreen.storyboard */; };
+		DFD5E0842A79CBDC0068ADFA /* TMDBRemoteMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD5E0832A79CBDC0068ADFA /* TMDBRemoteMovies.swift */; };
+		DFD5E0872A79CFA00068ADFA /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD5E0862A79CFA00068ADFA /* UIImageView+Download.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		CEF3279F2A54D22F00D4269E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEF327A22A54D22F00D4269E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEF327A42A54D22F00D4269E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFD5E0832A79CBDC0068ADFA /* TMDBRemoteMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRemoteMovies.swift; sourceTree = "<group>"; };
+		DFD5E0862A79CFA00068ADFA /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				CE94EB272A5E0D4B00B8A58E /* Movie.swift */,
+				DFD5E0832A79CBDC0068ADFA /* TMDBRemoteMovies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 		CEF327952A54D22E00D4269E /* MeuPrimeiroAppiOS */ = {
 			isa = PBXGroup;
 			children = (
+				DFD5E0852A79CF890068ADFA /* Extensions */,
 				CE1CDA822A79BD8700DFB21C /* Detail */,
 				CE1CDA812A79BD7F00DFB21C /* Model */,
 				CE1CDA802A79BD6C00DFB21C /* List */,
@@ -98,6 +104,14 @@
 				CEF327A42A54D22F00D4269E /* Info.plist */,
 			);
 			path = MeuPrimeiroAppiOS;
+			sourceTree = "<group>";
+		};
+		DFD5E0852A79CF890068ADFA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DFD5E0862A79CFA00068ADFA /* UIImageView+Download.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,8 +189,10 @@
 				CEF327972A54D22E00D4269E /* AppDelegate.swift in Sources */,
 				CE94EB282A5E0D4B00B8A58E /* Movie.swift in Sources */,
 				CE1CDA862A79BEE100DFB21C /* DetailViewController.swift in Sources */,
+				DFD5E0872A79CFA00068ADFA /* UIImageView+Download.swift in Sources */,
 				CE94EB2A2A5E0EAC00B8A58E /* MovieCell.swift in Sources */,
 				CEF327992A54D22E00D4269E /* SceneDelegate.swift in Sources */,
+				DFD5E0842A79CBDC0068ADFA /* TMDBRemoteMovies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

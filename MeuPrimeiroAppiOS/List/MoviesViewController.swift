@@ -1,12 +1,7 @@
 import UIKit
 
 class MoviesViewController: UIViewController {
-    private var movies: [Movie] = [
-        .init(title: "Vingadores Ultimato", releaseData: "12/12/2022", imageURL: ""),
-        .init(title: "Super Mario Bros", releaseData: "12/12/2022", imageURL: ""),
-        .init(title: "Cavaleiros do Zodíaco", releaseData: "12/12/2022", imageURL: ""),
-        .init(title: "Resgate", releaseData: "12/12/2022", imageURL: "")
-    ]
+    private var movies: [Movie] = []
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -34,6 +29,7 @@ class MoviesViewController: UIViewController {
         tableView.delegate = self
         addViewsInHierarchy()
         setupConstraints()
+        fetchRemoteMovies()
     }
     
     private func addViewsInHierarchy() {
@@ -54,6 +50,31 @@ class MoviesViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+
+    private func fetchRemoteMovies() {
+        let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=2123f7821fc1adc226b8d60b70f445e6&language=pt-BR")!
+
+        let request = URLRequest(url: url)
+
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            if error != nil { return }
+
+            guard let moviesData = data else { return }
+
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            guard let remoteMovies = try? decoder.decode(TMDBRemoteMovies.self, from: moviesData) else { return }
+
+            self.movies = remoteMovies.results
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+
+        task.resume()
     }
 }
 

@@ -1,5 +1,7 @@
-struct Movie {
+struct Movie: Decodable {
     let title: String
-    let releaseData: String
-    let imageURL: String
+    let releaseDate: String
+    let posterPath: String
+    let overview: String
+    let voteAverage: Double
 }
