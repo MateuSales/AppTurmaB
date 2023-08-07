@@ -15,7 +15,7 @@ class MovieCell: UITableViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 18
         image.layer.masksToBounds = true
-        image.backgroundColor = .blue
+        image.backgroundColor = .systemGray2
         return image
     }()
     
@@ -58,7 +58,8 @@ class MovieCell: UITableViewCell {
     
     func configure(movie: Movie) {
         titleLabel.text = movie.title
-        releaseDateLabel.text = "Lançamento: \(movie.releaseData)"
+        releaseDateLabel.text = "Lançamento: \(movie.releaseDate)"
+        imageMoviewView.download(path: movie.posterPath)
     }
     
     private func setupContentView() {
